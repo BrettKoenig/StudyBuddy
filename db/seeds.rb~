@@ -1,0 +1,12 @@
+#Course.delete_all
+Course.create(:title => 'CSE 3901: Web Applications',
+  :professor => 'Naeem Shareef',
+  :time => '10:20 AM',
+  :location => 'Dreese 0264')
+
+Course.create(:title => 'CSE 3341: Principles of Programming Languages',
+  :professor => 'Wayne Heym',
+  :time => '9:10 AM',
+  :location => 'Dreese 0364')
+
+#Users.delete_all

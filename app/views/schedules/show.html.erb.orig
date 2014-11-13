@@ -1,0 +1,32 @@
+<<<<<<< local
+<h2>Your Class Schedule</h2>
+
+<div id="product_list">
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @schedule.line_items.each do |item| %>
+			<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+				<td><%= link_to("#{item.course.title}", {:controller => "courses", :action => 'show', :id => item.course_id}) %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+=======
+<h2 class="schedule_title">Your Class Schedule</h2>
+<ul>
+<% @schedule.line_items.each do |item| %>
+<li><%= item.course.title %></li>
+<% end %>
+</ul>
+>>>>>>> other
+
+<%= button_to 'Clear Schedule', @schedule, :method => :delete,
+:confirm => 'Are you sure?' %>
+
+<%= link_to("Clear Schedule", {:controller => "line_items", :action => 'index'})%>

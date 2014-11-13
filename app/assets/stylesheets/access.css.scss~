@@ -1,0 +1,30 @@
+// Place all the styles related to the access controller here.
+// They will automatically be included in application.css.
+<<<<<<< local
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login td{
+color: #00063F;
+
+}
+
+#biglogo{
+width: 300px;
+margin: 0% 10%;
+margin-bottom: 40px;
+border-style: solid;
+border-width: 7px;
+border-color: white;
+
+}
+
+address h4{
+line-height: 20%;
+}
+
+div h1{
+text-align: center;
+color: white;
+}
+=======
+// You can use Sass (SCSS) here: http://sass-lang.com/>>>>>>> other

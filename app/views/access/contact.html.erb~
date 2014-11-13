@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row" id= "contact"> 
+    <div class="col-sm-4">
+      <h2>Drop me a line!</h2>
+      <hr>
+      <address>
+        <h3>Email:</h3> <a href="mailto:name@domain.com"> <h4>name@domain.com</h4></a><br>
+        <h3>Phone:</h3> <h4>(555)123-4567</h4></br>
+      </address>
+    </div>
+    
+    <div class="contact-form">
+      <form id="contact" method="post" class="form" role="form">
+        <div class="row">
+          <div class="form-group">
+            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required autofocus /></br>
+          
+            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required /></br>
+
+        
+        <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
+</div>          </div>
+        <br />
+        <div class="row">
+          <div class="form-group">
+            <button class="btn btn-primary " type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<% @page_title = "StudyBuddy: Menu" %>
+<div class="products">
+
+	<div class="menu"  style="text-align:center;">
+		<h2>User Menu</h2>
+		<div class="identity"><h3>Logged in:</h3> <h2><strong><%= @user.name%></strong></h2></div>
+		<ul>
+			<li><h4><%= link_to("Manage Course", :controller => 'store', :action => 'index') %></h4></li>
+			<li><h4><%= link_to("Manage Schedule", :controller => 'schedules', :action => 'show', :id => @user.id) %></h4></li>
+			<li><h4><%= link_to("Logout", :action => 'logout') %></h4></li>
+		</ul>
+	</div>
+</div>

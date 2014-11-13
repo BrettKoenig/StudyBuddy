@@ -1,0 +1,18 @@
+class CombineItemsInSchedule < ActiveRecord::Migration
+  def self.up
+    #replace multiple items for a single course in a schedule with a single item
+    Schedule.all.each do |schedule|
+      #count the number of each course in the schedule, should be one
+      sums = schedule.line_items.group(:course_id).sum(:quantity)
+
+      sums.each do |course_id, quantity|
+        if quantity > 1
+          #remove individual items
+          schedule.line_items.where(:course_id=>course_id).delete_all
+          #replace with one item
+          schedule.line_items.create(:course_id=>course_id, :quantity=>quantity)
+        end
+      end
+    end
+  end
+end

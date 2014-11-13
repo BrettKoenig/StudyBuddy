@@ -1,0 +1,46 @@
+class AccessController < ApplicationController
+
+
+  before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout, :blog, :contact, :faqs]
+
+  def index
+    @user = User.find(session[:user_id])
+  end
+
+  def login
+  end
+
+  def blog
+  end
+
+  def contact
+  end
+
+  def faqs
+  end
+
+  def attempt_login
+    if params[:name].present? && params[:password].present?
+      authorized_user = User.authenticate(params[:name], params[:password])
+      # redirect_to schedule_url(:id => authorized_user.id)#will need to each specific user
+    end
+
+    if authorized_user
+      session[:user_id] = authorized_user.id
+      session[:name] = authorized_user.name
+      flash[:notice] = "You are now logged in"
+      redirect_to(:action => "index")
+    else
+      flash[:notice] = "Invlaid username/password combination."
+      redirect_to(:action => 'login')
+    end
+  end
+
+  def logout
+   session[:user_id] = nil
+   session[:name] = nil
+   flash[:notice] = "Logged out"
+   redirect_to(:action => "login")
+ end
+
+end

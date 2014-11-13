@@ -1,0 +1,67 @@
+<div class="course_info">
+  <p class="title">
+    <strong>Title:</strong>
+    <%= @course.title %>
+  </p>
+
+  <p>
+    <strong>Professor:</strong>
+    <%= @course.professor %>
+  </p>
+
+  <p>
+    <strong>Time:</strong>
+    <%= @course.time %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= @course.location %>
+  </p>
+</div>
+
+
+<h2>Comments:</h2>
+<% @course.comments.each do |comment| %>
+<p>
+  <div class="comment_info">
+    <strong>Username:</strong>
+    <%= comment.user %>
+  </p>
+  <p>
+    <strong>Title:</strong>
+    <%= comment.title %>
+  </p>
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+  <p>
+    <strong>Posted at:</strong>
+    <%= comment.created_at %>
+  </p>
+</div>
+<% end %>
+
+<hr>
+<h2>Add a comment:</h2>
+<%= form_for([@course, @course.comments.build]) do |f| %>
+<p>
+  <%= f.label :user %><br>
+  <%= f.text_field(:user, value: "#{session[:name]}") %>
+</p>
+<p>
+  <%= f.label :title %><br />
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :body %><br />
+  <%= f.text_area :body %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
